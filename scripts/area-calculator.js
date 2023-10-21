@@ -16,6 +16,11 @@ function calculateTriangleArea(){
     // show triangle area
     const areaSpan=document.getElementById('triangle-area');
     areaSpan.innerText=area;
+    //  validation of a number
+    if(isNaN(base) || isNaN(height)){
+        alert('please enter valid number')
+        return
+    }
 }
 
 function calculateRectangleArea(){
@@ -36,6 +41,11 @@ function calculateRectangleArea(){
     const areaSpan=document.getElementById('rectangle-area')
     areaSpan.innerText=area;
 
+    if(isNaN(width) || isNaN(length)){
+        alert('please enter valid number')
+        return
+    }
+
 }
 // reusable function--> reduce duplicate code
 function calculateParallelogramArea(){
@@ -47,7 +57,12 @@ function calculateParallelogramArea(){
     // console.log(height);
 
     const area=base*height;
-    setElementInnerText('parallelogram-area',area)
+    setElementInnerText('parallelogram-area',area);
+
+    if(isNaN(base) || isNaN(height)){
+        alert('please enter valid number')
+        return
+    }
 
 
 }
@@ -56,6 +71,12 @@ function calculateEllipseArea(){
     const minorRadius=getInputValue('ellipse-minor');
     const area=3.14*majorRadius*minorRadius;
     setElementInnerText('ellipse-area',area);
+    if(isNaN(majorRadius) || isNaN(minorRadius)){
+        alert('please enter valid number')
+        return
+    }
+
+   
 }
 // reusable get value in number
 function getInputValue(fieldId){
@@ -70,4 +91,6 @@ function getInputValue(fieldId){
 function setElementInnerText(elementId,area){
     const element=document.getElementById(elementId);
     element.innerText=area;
+
+   
 }
